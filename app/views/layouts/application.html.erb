@@ -11,18 +11,17 @@
 </head>
 <body>
   <div class="container">
-    <p class="navbar-text float-right">
-      <h4 class='pull-right'>
-      <% if user_signed_in? %>
-      Logged in as <strong><%= current_user.email %></strong>.
-        <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-        <% else %>
-        <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %>
-        <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-        <% end %>
-      </h4>
-      </p>
+      <div class="row">
+        <div class="col-sm-6">
+          <% if user_signed_in? %>
+            <%= link_to 'Edit profile', edit_user_registration_path, type: 'button', class: "btn btn-primary", style: "margin-top: 20px;color: white;" %>
+            <%= link_to 'Logout', destroy_user_session_path, method: :delete, type: 'button', class: "btn btn-primary", style: "margin-top: 20px;color: white;" %>
+          <%else%>
+            <%= link_to 'Sign up', new_user_registration_path, type: 'button', class: "btn btn-primary", style: "margin-top: 20px;color: white;" %>
+            <%= link_to 'Login', new_user_session_path, type: 'button', class: "btn btn-primary", style: "margin-top: 20px;color: white;" %>
+          <%end%>
+        </div>
+      </div>
       <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
       <% end %>
