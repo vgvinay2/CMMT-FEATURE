@@ -1,37 +1,30 @@
-<%= form_with(model: product) do |form| %>
-  <% if product.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
-
-      <ul>
-        <% product.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
+<div class="row">
+  <%= form_with(model: product) do |form| %>
+  <div class="col-sm-6">
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+  <div class="col-sm-6">
+    <%= form.label :description, class: "form-label" %>
+    <%= form.text_field :description, class: "form-control" %>
+  </div>
+  <div class="col-sm-6">
+    <%= form.label :price, class: "form-label" %>
+    <%= form.text_field :price, class: "form-control" %>
+  </div>
+  <div class="col-sm-6">
+    <%= form.label :quantity, class: "form-label" %>
+    <%= form.text_field :quantity, class: "form-control" %>
+  </div>  
+  <div class="row">    
+  <div class="col-sm-6">
+    <%= form.submit 'Submit',class: "btn btn-primary",style: "margin-top: 20px" %>
+    <%= link_to 'Cancel', products_path, type: 'button', class: "btn btn-primary pull-right", style: "margin-top: 20px;color: white;" %>
+  </div>
+  <!-- <div class="col-sm-6">
+    <%#= form.submit 'Submit',class: "btn btn-primary",style: "margin-top: 20px" %>
+    <%#= link_to 'Back', products_path, type: 'button', class: "btn btn-primary pull-right", style: "margin-top: 20px;" %>
+  </div> -->
+</div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price %>
-  </div>
-
-  <div class="field">
-    <%= form.label :quantity %>
-    <%= form.number_field :quantity %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
