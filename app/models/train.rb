@@ -1,0 +1,2 @@
+class Train < Vehicle
+end
